@@ -2,51 +2,8 @@ import ACTIONS from "./cacheAction";
 
 export let cacheReducerState = {
     data: {
-        // Enter the keys, in alphabetical order
-        aboutSStoryData: {
-            data: [],
-            isAlreadyCalled: false
-        },
-        clientData: {
-            data: [],
-            isAlreadyCalled: false
-        },
-        experienceData : {
-            data:[],
-            isAlreadyCalled:false
-        },
-        galleryData : {
-            data:[],
-            isAlreadyCalled:false
-        },
-        loader:{
-            display: false
-        },
-        ppItemData : {
-            data:[],
-            isAlreadyCalled:false
-        },
-        ppLocationData : {
-            data:[],
-            isAlreadyCalled:false
-        },
-        previousShowData : {
-            data:[],
-            isAlreadyCalled:false
-        },
+        // Enter the keys, in alphabetical order\```
         slidesData : {
-            data:[],
-            isAlreadyCalled:false
-        },
-        serviceData : {
-            data:[],
-            isAlreadyCalled:false
-        },
-        successStoryData : {
-            data:[],
-            isAlreadyCalled:false
-        },
-        teamData : {
             data:[],
             isAlreadyCalled:false
         },
