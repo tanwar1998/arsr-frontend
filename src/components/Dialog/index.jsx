@@ -51,6 +51,7 @@ export default function Alert(props) {
         className = {props.type === 'confirm' ? 'confirm-dialog' : ''}
         TransitionComponent={Transition}
         keepMounted
+        maxWidth = {'sm'}
         onClose={props.handleClose}
         aria-describedby="alert-dialog-slide-description"
       >

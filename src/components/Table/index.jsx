@@ -155,7 +155,7 @@ const EnhancedTableToolbar = (props) => {
         {numSelected === 1 && <Tooltip title="Info">
           <IconButton>
             <InfoIcon
-                onClick = {props.infoItem} />
+                onClick = {props.setInfoItem} />
           </IconButton>
         </Tooltip>}
         {numSelected === 1 && <Tooltip title="Edit">
@@ -257,6 +257,7 @@ export default function EnhancedTable(props) {
       <Paper sx={{ width: '100%', mb: 2 }}>
         <EnhancedTableToolbar numSelected={selected.length} 
               deleteItem = {() => { props.deleteItem(selected)} }
+              setInfoItem = {  () => props.setInfoItem(selected) }
               editItem = {  () => props.editItem(selected) }
               title = { props.title }
               />
@@ -275,7 +276,8 @@ export default function EnhancedTable(props) {
               rowCount={rows.length}
               headCells = { props.headCells }
               deleteItem = {() => { props.deleteItem(selected)} }
-              editItem = {  () => props.editItem(selected) }     
+              editItem = {  () => props.editItem(selected) }  
+              setInfoItem = {  () => props.setInfoItem(selected) }   
 
             />
             <TableBody>

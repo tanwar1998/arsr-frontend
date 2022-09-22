@@ -6,6 +6,7 @@ import Alert from '../../../components/Dialog/index.jsx';
 import ButtonComponent from '../../../components/ButtonComponent/index.jsx';
 import { Toastify } from '../../../components/Toastify/index.jsx';
 import { ValidateEmail, ValidatePhoneNumber } from '../../../Services/helper.js';
+import { InfoContainer } from '../style.js';
 
 const initialEmployeeData = {
   name: '',
@@ -32,10 +33,12 @@ const headCells = [
 
 export default function Slides(props) {
   const [alertData, setAlertData] = useState({});
+  const [infoAlertData, setInfoAlertData] = useState({});
   const [deleteData, setDeleteData] = useState({id: '', open: false});
-  const [emailError, setEmailError] = useState(true);
+  const [emailError, setEmailError] = useState(false);
   const [phoneError, setPhoneError] = useState(false);
   const [employeeData, setEmployeeData] = useState(initialEmployeeData);
+  
 
 
   const deleteItem = (data) => {
@@ -67,6 +70,13 @@ export default function Slides(props) {
     }
     setAlertData(tmpAlertData)
   }
+  const setInfoItem = (data) => {
+    setEmployeeData({...data[0]});
+    const tmpAlertData = {
+      open: true,
+    }
+    setInfoAlertData(tmpAlertData)
+  }
 
   const handleChange = (data, key = 'name') => {
     if(key === 'email'){
@@ -92,8 +102,8 @@ export default function Slides(props) {
 
   const handleEditBoxClose = ()=> {
     setEmployeeData({text: '', image: []});
-    setAlertData({open: false})
     setAlertData({})
+    setInfoAlertData({})
  }
   const submitData = async() => {
     if(!employeeData.name){
@@ -117,11 +127,6 @@ export default function Slides(props) {
       return false;
     }
     
-
-    // const postAPIData = { 
-
-    //   text: employeeData.text,
-    // }
 
     const URL = 'employee';
     const method = alertData.type === 'edit' ? 'put' : 'post';
@@ -148,6 +153,7 @@ export default function Slides(props) {
             rows = {props.store?.cacheData?.data?.employeeData.data || [] }
             deleteItem = { deleteItem }
             editItem = { editItem }        
+            setInfoItem = { setInfoItem }        
             title = 'Employee list'    
         />
         </div>
@@ -222,6 +228,35 @@ export default function Slides(props) {
           handleConfirm = { handleDeleteDataConfirm }
           handleClose = { handleDeleteDataCancel }
         />
+
+        <Alert
+            open = {infoAlertData.open }
+            label = { "Employee details"}
+            handleClose = { handleEditBoxClose }
+          >
+            <InfoContainer className='hor-row info-container-main'>
+              <div className='hor-row'>
+                <span> Name:  </span>
+                {employeeData.name}
+              </div>
+              <div className='hor-row'>
+                <span> Email:  </span>
+                {employeeData.email}
+              </div>
+              <div className='hor-row'>
+                <span> Phone number:  </span>
+                {employeeData.phone}
+              </div>
+              <div className='hor-row'>
+                <span> Designation:  </span>
+                {employeeData.designation}
+              </div>
+              <div className='hor-row'>
+                <span> Address:  </span>
+                {employeeData.address}
+              </div>
+            </InfoContainer>
+          </Alert>
       </div>
     );
   }

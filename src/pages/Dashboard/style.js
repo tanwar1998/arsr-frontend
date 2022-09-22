@@ -20,5 +20,23 @@ export const DashboardContainer = styled.div`
         }
     }
 
+    .info-container-main{
+        span{
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    }
     
+`;
+
+
+export const InfoContainer = styled.div`
+    font-size: 14px;
+    .hor-row{
+        margin: 5px 0 ;
+    }
+    span{
+        font-weight: bold;
+        margin-right: 10px;
+    }
 `;
