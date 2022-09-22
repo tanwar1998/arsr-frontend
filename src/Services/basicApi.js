@@ -1,6 +1,5 @@
 import axios from 'axios';
-const API_PATH = process.env.REACT_APP_BASE_API_PATH + 'api/v1/';
-
+const API_PATH = process.env.REACT_APP_BASE_API_PATH;
 
 axios.defaults.withCredentials = true;
 

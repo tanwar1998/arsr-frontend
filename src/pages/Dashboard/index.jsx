@@ -5,10 +5,13 @@ import { connect } from "react-redux";
 import { updateStore } from '../../Store/cacheAction';
 import PERMANENT_ACTION from '../../Store/permanentAction';
 import { postAPI, putAPI, deleteAPI } from '../../Services/basicApi.js';
-import getSlidesData from '../../Services/GetAPI/getSlidesData.js';
+import getEmployeeData from '../../Services/GetAPI/getEmployeeData.js';
 
 function DashboardContainerMain(props) {
 
+    useEffect(()=>{
+        props.getEmployeeData(props.store)
+    }, [])
 
 
     const masterAPI = async (path, data, type = 'post', tmpHeader) => {
@@ -34,12 +37,7 @@ function DashboardContainerMain(props) {
            <Dashboard
             masterAPI = { masterAPI }
             store = {props.store}
-            getSlidesData = { props.getSlidesData  }
-            getSuccessStoryData = { props.getSuccessStoryData  }
-            getPPItemData = { props.getPPItemData  }
-            getPPLocationData = { props.getPPLocationData  }
-            getExperienceData = { props.getExperienceData  }
-            getServiceData = { props.getServiceData  }
+            getEmployeeData = { props.getEmployeeData  }
            />
         </DashboardContainer>
     );
@@ -53,7 +51,7 @@ function DashboardContainerMain(props) {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      getSlidesData: (item, update = false) => dispatch(getSlidesData(item, update)),
+        getEmployeeData: (item, update = false) => dispatch(getEmployeeData(item, update)),
         updateStore: item => dispatch(updateStore(item)),
         updatePermanentStore: item => dispatch(PERMANENT_ACTION.updateStoreKey(item)),
     };

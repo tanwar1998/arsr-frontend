@@ -3,7 +3,7 @@ import ACTIONS from "./cacheAction";
 export let cacheReducerState = {
     data: {
         // Enter the keys, in alphabetical order\```
-        slidesData : {
+        employeeData : {
             data:[],
             isAlreadyCalled:false
         },
