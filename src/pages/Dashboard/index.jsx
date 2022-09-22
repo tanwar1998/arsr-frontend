@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { DashboardContainer } from './style.js';
-import Dashboard from './components/dashboard.jsx';
+import Employee from './components/employee.jsx';
 import { connect } from "react-redux";
 import { updateStore } from '../../Store/cacheAction';
 import PERMANENT_ACTION from '../../Store/permanentAction';
@@ -8,7 +8,6 @@ import { postAPI, putAPI, deleteAPI } from '../../Services/basicApi.js';
 import getEmployeeData from '../../Services/GetAPI/getEmployeeData.js';
 
 function DashboardContainerMain(props) {
-
     useEffect(()=>{
         props.getEmployeeData(props.store)
     }, [])
@@ -34,11 +33,18 @@ function DashboardContainerMain(props) {
 
     return (
         <DashboardContainer>
-           <Dashboard
-            masterAPI = { masterAPI }
-            store = {props.store}
-            getEmployeeData = { props.getEmployeeData  }
-           />
+            <div className='hor-row home-container-main'>
+                <div className='hor-row container-main'>
+                <h2>
+                    Home page 
+                </h2>
+
+                    <Employee
+                        masterAPI = { masterAPI }
+                        store = {props.store}
+                        getEmployeeData = { props.getEmployeeData  }/>
+                </div>
+            </div>
         </DashboardContainer>
     );
   }

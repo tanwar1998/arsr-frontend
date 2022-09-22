@@ -29,8 +29,6 @@ const headCells = [
   },
 ];
 
-
-
 export default function Slides(props) {
   const [alertData, setAlertData] = useState({});
   const [infoAlertData, setInfoAlertData] = useState({});
@@ -38,8 +36,6 @@ export default function Slides(props) {
   const [emailError, setEmailError] = useState(false);
   const [phoneError, setPhoneError] = useState(false);
   const [employeeData, setEmployeeData] = useState(initialEmployeeData);
-  
-
 
   const deleteItem = (data) => {
     setDeleteData({id: data[0]?._id,   open: true});
@@ -70,11 +66,10 @@ export default function Slides(props) {
     }
     setAlertData(tmpAlertData)
   }
+
   const setInfoItem = (data) => {
     setEmployeeData({...data[0]});
-    const tmpAlertData = {
-      open: true,
-    }
+    const tmpAlertData = { open: true }
     setInfoAlertData(tmpAlertData)
   }
 
@@ -105,6 +100,7 @@ export default function Slides(props) {
     setAlertData({})
     setInfoAlertData({})
  }
+
   const submitData = async() => {
     if(!employeeData.name){
       Toastify('error', "Please provide text!")
@@ -126,14 +122,12 @@ export default function Slides(props) {
       Toastify('error', "Please provide address!")
       return false;
     }
-    
 
     const URL = 'employee';
     const method = alertData.type === 'edit' ? 'put' : 'post';
     const employeeResponse = await props.masterAPI(URL, employeeData, method);
-    console.log('employeeResponse.>>>>>>>', employeeResponse)
     if(employeeResponse?.status){
-      Toastify('success', "employee added successfully")
+      Toastify('success', alertData.type === 'edit' ? "Employee updated successfully" : "Employee added successfully")
       if(alertData.type !== 'edit'){
         setEmployeeData(initialEmployeeData)
       }
@@ -143,10 +137,8 @@ export default function Slides(props) {
     }
   }
 
-
     return (
       <div className='hor-row slides-container-main'>
-
         <div className='hor-row table-container-main'>
         <Table
             headCells = { headCells }
@@ -157,10 +149,9 @@ export default function Slides(props) {
             title = 'Employee list'    
         />
         </div>
-          
 
       <Button variant="outlined" onClick={() => setAlertData({open: true})}>
-        Add Item
+        Add Employee
       </Button>
 
         <Alert
@@ -218,7 +209,6 @@ export default function Slides(props) {
               onClick = { submitData }
               />
           </div>
-
         </Alert>
         
         <Alert
