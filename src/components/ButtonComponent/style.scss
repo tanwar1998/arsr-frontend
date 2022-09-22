@@ -1,0 +1,33 @@
+
+.button-container-main{
+    width: 100%;
+    display: inline-block;
+    float: none;
+    position: relative;
+    
+    .MuiButtonBase-root{
+        background: #FA4DAC;
+        border-radius: 15px;
+
+        &:hover{    
+            background: #d74193;
+        }
+
+    }
+    .MuiButton-outlined{
+        color: #FA4DAC;
+        border: 1px solid #FA4DAC!important;
+        background: #fff;
+        border-radius: 15px;
+
+        &:hover{    
+            background: #FA4DAC;
+            color: #fff;
+        }
+
+    }
+
+}
+
+@media only screen and (max-width: 768px){   
+}

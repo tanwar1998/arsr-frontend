@@ -1,0 +1,50 @@
+
+.carosule-component-container-main{
+    width: 100%;
+    box-sizing: border-box;
+    float: left;
+
+    .nav-button-class{
+        background: #bdbdbd;
+        border-radius: 20.5px;
+        box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+        width: 40px;
+        height: 60px;
+    }
+    .custome-indicator-main{
+        background-color: #bdbdbd;
+        border-radius: 100%;
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        box-sizing: border-box;
+    }
+    .active-indicator-icon-button{
+        background: #ba89ff;
+        width: 19px;
+        border-radius: 6.4px;
+
+        .custome-indicator-main{
+            background: inherit;
+            margin: 0;
+        }
+    }
+    .MuiIconButton-sizeSmall{
+        margin: 0 5px;
+    }
+
+    .css-ohwg9z{
+        overflow: inherit!important; 
+        width: 100%;
+        float: left;
+    }
+
+}
+.hide-carosule-indicator-icon{
+    .Carousel-root-10,.jss10{
+        .Carousel-next-20,.Carousel-prev-21,.jss20,.jss21{
+            display: none;
+        }
+    }
+    
+}
